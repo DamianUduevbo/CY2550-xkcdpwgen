@@ -36,7 +36,6 @@ optional arguments:
 
 "FIXED THIS so no repeats"
 def chooseNwords(n = 4):
-    print(n, "words chosen")
     for i in range(0, n):
         chosenWord = WORDS[random.randint(0, len(WORDS) - 1)]
         ChosenWords.append(chosenWord)
@@ -47,9 +46,6 @@ def capN(n = 0):
     
     for i in range(0, n if n <= len(ChosenWords) else len(ChosenWords)):
         ChosenWords[i] = ChosenWords[i].capitalize()
-
-    if n > len(ChosenWords):
-        print("ATTENTION: Number of capitalisations exceeds number of words chosen. All chosen words have been capitalised.")
 
 def chooseNnumbers(n = 0):
     if (n <= 0):
@@ -133,8 +129,7 @@ def makePassword():
 
 def checkArgs():
     if len(sys.argv) <= 1:
-        chooseNwords()
-        print("".join(ChosenWords))
+        print(helpText)
     else:
         for i in range(len(sys.argv)):
             arg = sys.argv[i]
@@ -149,9 +144,6 @@ def checkArgs():
             elif (arg == "-s" or arg == "--symbols"):
                 addSymbols(i)
     
-    print(ChosenWords)
-    print(ChosenNumbers)
-    print(ChosenSymbols)
     makePassword()
 
 checkArgs()
