@@ -36,7 +36,6 @@ class XKCD:
 
     "FIXED THIS so no repeats"
     def chooseNwords(self, n = 4):
-        print(n, "words chosen")
         for i in range(0, n):
             chosenWord = self.WORDS[random.randint(0, len(self.WORDS) - 1)]
             self.ChosenWords.append(chosenWord)
@@ -47,9 +46,6 @@ class XKCD:
         
         for i in range(0, n if n <= len(self.ChosenWords) else len(self.ChosenWords)):
             self.ChosenWords[i] = self.ChosenWords[i].capitalize()
-
-        if n > len(self.ChosenWords):
-            print("ATTENTION: Number of capitalisations exceeds number of words chosen. All chosen words have been capitalised.")
 
     def chooseNnumbers(self, n = 0):
         if (n <= 0):
@@ -152,11 +148,6 @@ class XKCD:
                     self.addNums(i)
                 elif (arg == "-s" or arg == "--symbols"):
                     self.addSymbols(i)
-        
-        print(self.ChosenWords)
-        print(self.ChosenNumbers)
-        print(self.ChosenSymbols)
-        "self.makePassword()"
 
 pwGen = XKCD()
 pwGen.makePassword()
